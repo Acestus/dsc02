@@ -31,6 +31,6 @@ Configuration AccountPolicy_Config
 }
 
 AccountPolicy_Config -OutputPath "C:\DSC\SetLocalPasswordMaxAge"
-Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose -Force
+#Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose -Force
 
 net accounts
