@@ -1,3 +1,5 @@
+Install-Module -Name SecurityPolicyDsc -Force
+
 #Requires -Module SecurityPolicyDsc
 
 
