@@ -1,31 +1,26 @@
-Configuration SetLocalPasswordMaxAge {
-    Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
+#Requires -Module SecurityPolicyDsc
 
-    Node 'localhost' {
-        Script SetMaxPasswordAge {
-            GetScript = {
-                @{
-                    GetScript = $null
-                    TestScript = {
-                        $output = net accounts
-                        return $output -match "Maximum password age\s*:\s*181 days"
-                    }
-                    SetScript = {
-                        net accounts /maxpwage:181
-                    }
-                }
-            }
-            TestScript = {
-                $output = net accounts
-                return $output -match "Maximum password age\s*:\s*181 days"
-            }
-            SetScript = {
-                net accounts /maxpwage:181
-            }
+
+<#
+    .DESCRIPTION
+        This configuration will manage the local security account policy.
+#>
+
+Configuration AccountPolicy_Config
+{
+    Import-DscResource -ModuleName SecurityPolicyDsc
+
+    node localhost
+    {
+        AccountPolicy 'AccountPolicies'
+        {
+            Name                                        = 'PasswordPolicies'
+            Enforce_password_history                    = 15
+            Maximum_Password_Age                        = 42
+            Minimum_Password_Age                        = 1
+            Minimum_Password_Length                     = 12
+            Password_must_meet_complexity_requirements  = 'Enabled'
+            Store_passwords_using_reversible_encryption = 'Disabled'
         }
     }
 }
-
-# Apply the configuration
-SetLocalPasswordMaxAge -OutputPath "C:\DSC\SetLocalPasswordMaxAge"
-Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose -Force
