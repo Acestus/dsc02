@@ -28,4 +28,4 @@ Configuration SetLocalPasswordMaxAge {
 
 # Apply the configuration
 SetLocalPasswordMaxAge -OutputPath "C:\DSC\SetLocalPasswordMaxAge"
-Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose
+Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose -Force
