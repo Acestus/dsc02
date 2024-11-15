@@ -10,4 +10,4 @@ foreach ($rule in $rules) {
 }
 
 
-Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Actions
+Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
