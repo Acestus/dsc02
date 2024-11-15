@@ -16,7 +16,7 @@ Configuration AccountPolicy_Config
         {
             Name                                        = 'PasswordPolicies'
             Enforce_password_history                    = 15
-            Maximum_Password_Age                        = 42
+            Maximum_Password_Age                        = 45
             Minimum_Password_Age                        = 1
             Minimum_Password_Length                     = 12
             Password_must_meet_complexity_requirements  = 'Enabled'
@@ -24,3 +24,6 @@ Configuration AccountPolicy_Config
         }
     }
 }
+
+AccountPolicy_Config -OutputPath "C:\DSC\SetLocalPasswordMaxAge"
+Start-DscConfiguration -Path "C:\DSC\SetLocalPasswordMaxAge" -Wait -Verbose -Force
