@@ -6,7 +6,7 @@ $rules = @(
 )
 
 foreach ($rule in $rules) {
-    Add-MpPreference -AttackSurfaceReductionRules_Ids $rule -AttackSurfaceReductionRules_Actions Enabled
+    Remove-MpPreference -AttackSurfaceReductionRules_Ids $rule -AttackSurfaceReductionRules_Actions Enabled
 }
 
 
