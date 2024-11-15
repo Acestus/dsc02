@@ -2,7 +2,7 @@ Configuration SetPasswordMaxAge {
     Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
 
     Node 'localhost' {
-        User AccountPolicy {
+        AccountPolicy LocalAccountPolicy {
             MaximumPasswordAge = 181
         }
     }
