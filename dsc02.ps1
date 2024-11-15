@@ -1,7 +1,9 @@
-Install-Module -Name SecurityPolicyDsc -Force
+# Check if SecurityPolicyDsc module is installed
+$module = Get-Module -ListAvailable -Name SecurityPolicyDsc
+if ($null -eq $module) {
+    Install-Module -Name SecurityPolicyDsc -Force
 
 #Requires -Module SecurityPolicyDsc
-
 
 <#
     .DESCRIPTION
