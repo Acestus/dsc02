@@ -6,7 +6,10 @@ Configuration SetLocalPasswordMaxAge {
             GetScript = {
                 @{
                     GetScript = $null
-                    TestScript = { return $true }
+                    TestScript = {
+                        $output = net accounts
+                        return $output -match "Maximum password age (.*): 181 days"
+                    }
                     SetScript = {
                         net accounts /maxpwage:181
                     }
@@ -14,7 +17,7 @@ Configuration SetLocalPasswordMaxAge {
             }
             TestScript = {
                 $output = net accounts
-                $output -match "Maximum password age (.*): 181 days"
+                return $output -match "Maximum password age (.*): 181 days"
             }
             SetScript = {
                 net accounts /maxpwage:181
