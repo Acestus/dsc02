@@ -18,7 +18,7 @@ Configuration AccountPolicy_Config
         {
             Name                                        = 'PasswordPolicies'
             Enforce_password_history                    = 15
-            Maximum_Password_Age                        = 45
+            Maximum_Password_Age                        = 100
             Minimum_Password_Age                        = 1
             Minimum_Password_Length                     = 12
             Password_must_meet_complexity_requirements  = 'Enabled'
